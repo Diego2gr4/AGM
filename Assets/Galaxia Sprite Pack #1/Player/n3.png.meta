@@ -1,16 +1,7 @@
 fileFormatVersion: 2
-guid: 34117c1e0c2d27d43973517e619028e5
+guid: bccd0ffa0df0fa54f97cc4c5f253fd93
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: 21300000
-    second: BulletsSpriteSheetGreen_0
-  - first:
-      213: 21300002
-    second: BulletsSpriteSheetGreen_1
-  - first:
-      213: 21300004
-    second: BulletsSpriteSheetGreen_2
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -39,12 +30,12 @@ TextureImporter:
   generateCubemap: 6
   cubemapConvolution: 0
   seamlessCubemap: 0
-  textureFormat: -3
-  maxTextureSize: 64
+  textureFormat: 1
+  maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 0
-    aniso: 16
+    filterMode: 1
+    aniso: 1
     mipBias: 0
     wrapU: 1
     wrapV: 1
@@ -72,16 +63,16 @@ TextureImporter:
   compressionQualitySet: 0
   textureFormatSet: 0
   ignorePngGamma: 0
-  applyGammaDecoding: 1
+  applyGammaDecoding: 0
   swizzle: 50462976
-  cookieLightType: 1
+  cookieLightType: 0
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 64
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -91,10 +82,10 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 64
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -106,64 +97,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BulletsSpriteSheetGreen_0
-      rect:
-        serializedVersion: 2
-        x: 5
-        y: 5
-        width: 15
-        height: 28
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 02305410000000000800000000000000
-      internalID: 21300000
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: BulletsSpriteSheetGreen_1
+      name: n3_0
       rect:
         serializedVersion: 2
         x: 23
-        y: 5
-        width: 16
-        height: 37
+        y: 20
+        width: 47
+        height: 53
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 22305410000000000800000000000000
-      internalID: 21300002
+      spriteID: 9db2f16c333cc3d4c8a57a337144f1ed
+      internalID: 375596061
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: BulletsSpriteSheetGreen_2
+      name: n3_1
       rect:
         serializedVersion: 2
-        x: 41
-        y: 5
-        width: 18
-        height: 55
+        x: 87
+        y: 21
+        width: 48
+        height: 52
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 42305410000000000800000000000000
-      internalID: 21300004
+      spriteID: 48d42f7f220696b48b97fee49a4ca39e
+      internalID: 1458519623
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: n3_2
+      rect:
+        serializedVersion: 2
+        x: 153
+        y: 21
+        width: 49
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0239f617cef622e498927893dae5d1b1
+      internalID: -1881524612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: n3_3
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 19
+        width: 49
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d71008d9a2a1beb46b2010f4208cb2ed
+      internalID: 1829237871
       vertices: []
       indices: 
       edges: []
@@ -171,7 +183,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 4f99fee3ec22f264385672c81599d5a3
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -179,9 +191,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      BulletsSpriteSheetGreen_0: 21300000
-      BulletsSpriteSheetGreen_1: 21300002
-      BulletsSpriteSheetGreen_2: 21300004
+      n3_0: 375596061
+      n3_1: 1458519623
+      n3_2: -1881524612
+      n3_3: 1829237871
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

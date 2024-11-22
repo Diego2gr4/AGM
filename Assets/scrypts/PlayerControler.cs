@@ -7,10 +7,16 @@ public class PlayerControler : MonoBehaviour
     public float speed = 5f;  // Define la velocidad del jugador
     public GameObject shootPrefab;
     public Transform shootOrigin;  // Agregué el punto y coma al final
-
-    // Update is called once per frame
+    private int Health = 100;    
+    
+    public void Hit()
+    {
+        Health -= 1;
+        if (Health == 0) Destroy(gameObject);
+    }    // Update is called once per frame
     void Update()
     {
+
         transform.Translate(Input.GetAxis("Horizontal") * speed * Time.deltaTime, 
                             Input.GetAxis("Vertical") * speed * Time.deltaTime, 
                             0);
