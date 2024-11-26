@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 90084390107688600}
   - component: {fileID: 7860836854118702199}
   - component: {fileID: 7354503447903259231}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: BULLET
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 6
+  m_SortingOrder: 40
   m_Sprite: {fileID: 1855077421, guid: 0eaa845a6a1967f44a98d37130cfb989, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -123,6 +123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 4
   maxTravelDistance: 15
+  Sound: {fileID: 8300000, guid: fbada6887214f324f9247508d47172b4, type: 3}
 --- !u!50 &7860836854118702199
 Rigidbody2D:
   serializedVersion: 4

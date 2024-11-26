@@ -10,11 +10,14 @@ public class BULLET : MonoBehaviour
     private Rigidbody2D Rigidbody2D;
     private Vector3 Direction;
     private Vector3 startPosition;  // Almacena la posición inicial de la bala
+    public AudioClip Sound; 
 
     private void Start()
     {
         Rigidbody2D = GetComponent<Rigidbody2D>();
         startPosition = transform.position;  // Guardar la posición inicial de la bala
+        Camera.main.GetComponent<AudioSource>().PlayOneShot(Sound);
+
     }
 
     private void FixedUpdate()
@@ -44,20 +47,33 @@ public class BULLET : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void OnTriggerEnter2D(Collider2D other)
+   private void OnTriggerEnter2D(Collider2D other)
+{
+    // Detectar si colisiona con un Alien normal
+    Alien alien = other.GetComponent<Alien>();
+    if (alien != null)
     {
-        Alien alien = other.GetComponent<Alien>();
-        Soldado_Movimiento soldado = other.GetComponent<Soldado_Movimiento>();
-        if (alien != null)
-        {
-            alien.Hit();
-        }
-        if (soldado != null)
-        {
-            soldado.Hit();
-        }
-        DestroyBullet();
+        alien.Hit();
     }
+
+    // Detectar si colisiona con el AlienBoss
+    AlienBoss alienBoss = other.GetComponent<AlienBoss>();
+    if (alienBoss != null)
+    {
+        alienBoss.Hit();
+    }
+
+    // Detectar si colisiona con el Soldado
+    Soldado_Movimiento soldado = other.GetComponent<Soldado_Movimiento>();
+    if (soldado != null)
+    {
+        soldado.Hit();
+    }
+
+    // Destruir la bala después de colisionar con cualquiera de los objetos anteriores
+    DestroyBullet();
+}
+
 }
 
 ////pruebaa

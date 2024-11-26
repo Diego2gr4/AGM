@@ -10,11 +10,13 @@ public class BulletA : MonoBehaviour
     private Rigidbody2D Rigidbody2D;
     private Vector3 Direction;
     private Vector3 startPosition;  // Almacena la posición inicial de la bala
-
+    public AudioClip Sound; 
     private void Start()
     {
         Rigidbody2D = GetComponent<Rigidbody2D>();
         startPosition = transform.position;  // Guardar la posición inicial de la bala
+        Camera.main.GetComponent<AudioSource>().PlayOneShot(Sound);
+
     }
 
     private void FixedUpdate()

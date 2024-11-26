@@ -13,10 +13,8 @@ public class Alien : MonoBehaviour
     public float ShootCooldown = 1f;  // Tiempo de espera entre disparos
     public float BulletSpacing = 0.2f;  // Tiempo entre balas
 
-    private float Speed = 1f;  // Velocidad del grunt
-    private float Horizontal;
-
     private Rigidbody2D Rigidbody2D;
+    private Vector3 lastSoldadoPosition; // Almacenar la última posición conocida del Soldado
 
     void Start()
     {
@@ -32,26 +30,25 @@ public class Alien : MonoBehaviour
             return;  // Si no hay objetivo, salir de la función
         }
 
+        // Actualizar la última posición conocida del Soldado
+        lastSoldadoPosition = Soldado.position;
+
         // Calcular la dirección hacia el jugador
         Vector3 direction = Soldado.position - transform.position;
-
-        // Calcular la distancia en el eje X
-        float distance = Mathf.Abs(Soldado.position.x - transform.position.x);
 
         // Cambiar la dirección del enemigo dependiendo de la posición de Soldado
         if (direction.x > 0.0f)
         {
             transform.localScale = new Vector3(-0.18f, 0.18f, 0.18f);  // Mirando a la derecha
-            Horizontal = Speed;  // Mover hacia la derecha
         }
         else
         {
             transform.localScale = new Vector3(0.18f, 0.18f, 0.18f);  // Mirando a la izquierda
-            Horizontal = -Speed;  // Mover hacia la izquierda
         }
 
         // Disparar si la distancia es menor a 9.0f y ha pasado suficiente tiempo desde el último disparo
-        if (distance < 9.0f && Time.time > LastShoot + ShootCooldown)
+        float distance = Vector3.Distance(Soldado.position, transform.position); // Distancia total
+        if (distance < 11.0f && Time.time > LastShoot + ShootCooldown)
         {
             StartCoroutine(ShootMultipleBullets());  // Iniciar la secuencia de disparo
             LastShoot = Time.time;  // Actualizar el tiempo del último disparo
@@ -60,26 +57,25 @@ public class Alien : MonoBehaviour
 
     private IEnumerator ShootMultipleBullets()
     {
+        // Activar animación de disparo
         Animator.SetTrigger("disparoa");
-        
-        for (int i = 0; i < 1; i++)  // Disparar 3 balas
+
+        for (int i = 0; i < 1; i++)  // Disparar 1 bala
         {
             Shoot();
             yield return new WaitForSeconds(BulletSpacing);  // Esperar antes de disparar la siguiente
         }
+
+        // Volver a la animación por defecto
+        Animator.SetTrigger("idle");
     }
 
     private void Shoot()
     {
         if (BulletPrefab == null) return;
 
-        Vector3 direction;
-
-        // Verificar la dirección del personaje según la escala
-        if (transform.localScale.x == -0.18f)  // Hacia la derecha
-            direction = Vector2.right;
-        else  // Hacia la izquierda
-            direction = Vector2.left;
+        // Calcular la dirección hacia la última posición conocida del Soldado
+        Vector3 direction = (lastSoldadoPosition - transform.position).normalized;
 
         // Instanciar la bala en la posición correcta
         GameObject bullet = Instantiate(BulletPrefab, transform.position + direction * 0.5f, Quaternion.identity);
@@ -100,11 +96,5 @@ public class Alien : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
-
-    void FixedUpdate()
-    {
-        // Movimiento en el FixedUpdate para el desplazamiento hacia Soldado
-        Rigidbody2D.velocity = new Vector2(Horizontal, Rigidbody2D.velocity.y);
     }
 }
